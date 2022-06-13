@@ -1,5 +1,5 @@
 // const base = require('./methods/base_methods');
-const {PRODUCT, PRODUCT2, PRODUCT3, PRODUCT4} = require('../utils/env_config.js');
+const {PRODUCT, PRODUCT2, PRODUCT3, PRODUCT4, PRODUCT5} = require('../utils/env_config.js');
 const env = require('../utils/bootstrap.js');
 const landingPageMethods = require('../test/methods/landing_page_methods');
 
@@ -8,6 +8,7 @@ const URL = "https://" + PRODUCT;
 const URL2 = "https://" + PRODUCT2;
 const URL3 = "https://" + PRODUCT3;
 const URL4 = "https://" + PRODUCT4;
+const URL5 = "https://" + PRODUCT5;
 describe("SearchforSingles landing pages", () => {
     it.skip("the first landing page -- https://landing.searchingforsingles.com/msn-1/", async() => {
         await page.goto(URL);
@@ -63,6 +64,19 @@ describe("SearchforSingles landing pages", () => {
         await landingPageMethods.Confirm2();
     });
 
+    it.skip("the 5th landing page -- topglobaldeals.com/offer/dtn-2", async() => {
+        await page.goto(URL5);
+        await landingPageMethods.EnterZipCode4();
+        await landingPageMethods.EnterBirthDate2();
+        await landingPageMethods.Next();
+        await landingPageMethods.Next();
+        await landingPageMethods.EnterEmail3();
+        await landingPageMethods.Next2();
+        await landingPageMethods.EnterUsername3();
+        await landingPageMethods.Next();
+        await landingPageMethods.EnterPassword3();
+        await landingPageMethods.Confirm2();
+    });
 
 
 
