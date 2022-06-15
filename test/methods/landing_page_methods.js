@@ -2,8 +2,13 @@ const base = require('../methods/base_methods.js');
 
 const EnterZipCode = async () => {
     await base.SendKeysToElement("[type='number']", '03045');
-    await base.ClickOnElement("//div[text()='Verify']");
 };
+
+const Verify = async () => {
+    await base.ClickOnElement("//div[text()='Verify']");
+}
+
+
 
 const EnterBirthDate = async () => {
     await base.SelectValueOfDropdown("[name='day']", "1");
@@ -160,12 +165,60 @@ const EnterBirthDate2 = async () => {
 };
 
 const Next2 = async() => {
-
+    await base.ClickOnElement("//div[text()='Next']");
 }
+
+const FillSignUpFormOut2 = async() => {
+    await base.SelectValueOfDropdown("[name='age']", "20");
+    await base.SendKeysToElement("[type='number']", '03045');
+    await base.WaitForElement("//*[@id='__layout']/div/div[1]/div/div[2]/div");
+    await base.SendKeysToElement("[placeholder='Username']", "username");
+    await base.WaitForElement("//*[@id='__layout']/div/div[1]/div/div[3]/div");
+    await base.SendKeysToElement("[placeholder='Password']", "password");
+    await base.WaitForElement("//*[@id='__layout']/div/div[1]/div/div[4]/div");
+    let random_number = Math.floor(Math.random() * (1000 - 1 + 1)) + 1;
+    let random_number_string = random_number.toString();
+    let email = "als+" + random_number_string + "@hoiagency.com";
+    await base.SendKeysToElement("[placeholder='your_email@domain.com']", email);
+    await base.WaitForElement("//*[@id='__layout']/div/div[1]/div/div[5]/div");
+    await base.ClickOnElement("//div[text()='Confirm']");
+};
+
+const EnterAge = async() => {
+    await base.SelectValueOfDropdown("[name='gender']", "20");
+    await base.ClickOnElement("//*[@id='looking_for_age']/div");
+
+};
+
+const EnterNickname = async() => {
+    await base.SendKeysToElement("[placeholder='Nickname']", "SuperSexyDaddy");
+    await base.WaitForElement("//*[@id='username']/div[1]/img");
+    await base.ClickOnElement("//*[@id='username']/div[2]");
+};
+
+const EnterPassword4 = async() => {
+    await base.SendKeysToElement("[placeholder='Password']", "username");
+    await base.WaitForElement("//*[@id='password']/div/div[1]/img");
+    await base.ClickOnElement("//*[@id='password']/div/div[2]");
+};
+
+const EnterEmail4 = async() => {
+    let random_number = Math.floor(Math.random() * (1000 - 1 + 1)) + 1;
+    let random_number_string = random_number.toString();
+    let email = "als+" + random_number_string + "@hoiagency.com";
+    await base.SendKeysToElement("[placeholder='@gmail.com']", email);
+    await base.WaitForElement("//*[@id='email']/div[1]/img");
+};
+
+const Confirm3 = async() => {
+    await base.ClickOnElement("//*[@id='email']/div[2]");
+};
+
 
 
 module.exports = {
     EnterZipCode,
+    Verify,
     EnterBirthDate,
     EnterEmail,
     EnterUsername,
@@ -191,5 +244,11 @@ module.exports = {
     EnterPassword3,
     Confirm2,
     EnterBirthDate2,
-    Next2
+    Next2,
+    FillSignUpFormOut2,
+    EnterAge,
+    EnterNickname,
+    EnterPassword4,
+    EnterEmail4,
+    Confirm3,
 };

@@ -1,5 +1,5 @@
 // const base = require('./methods/base_methods');
-const {PRODUCT, PRODUCT2, PRODUCT3, PRODUCT4, PRODUCT5} = require('../utils/env_config.js');
+const {PRODUCT, PRODUCT2, PRODUCT3, PRODUCT4, PRODUCT5, PRODUCT6, PRODUCT7} = require('../utils/env_config.js');
 const env = require('../utils/bootstrap.js');
 const landingPageMethods = require('../test/methods/landing_page_methods');
 
@@ -9,10 +9,14 @@ const URL2 = "https://" + PRODUCT2;
 const URL3 = "https://" + PRODUCT3;
 const URL4 = "https://" + PRODUCT4;
 const URL5 = "https://" + PRODUCT5;
+const URL6 = "https://" + PRODUCT6;
+const URL7 = "https://" + PRODUCT7;
+
 describe("SearchforSingles landing pages", () => {
     it.skip("the first landing page -- https://landing.searchingforsingles.com/msn-1/", async() => {
         await page.goto(URL);
         await landingPageMethods.EnterZipCode();
+        await landingPageMethods.Verify();
         await landingPageMethods.EnterBirthDate();
         await landingPageMethods.EnterEmail();
         await landingPageMethods.EnterUsername();
@@ -78,7 +82,23 @@ describe("SearchforSingles landing pages", () => {
         await landingPageMethods.Confirm2();
     });
 
+    it.skip("the 6th landing page -- topglobaldeals.com/offer/flv-2/", async() => {
+        await page.goto(URL6);
+        await landingPageMethods.TriggerSignUpForm();
+        await landingPageMethods.FillSignUpFormOut2();
+    });
 
+    it("the 7th landing page -- topglobaldeals.com/offer/fwb-1", async() => {
+        await page.goto(URL7);
+        await landingPageMethods.Confirm();
+        await landingPageMethods.EnterZipCode();
+        await landingPageMethods.Next2();
+        await landingPageMethods.EnterAge();
+        await landingPageMethods.EnterNickname();
+        await landingPageMethods.EnterPassword4();
+        await landingPageMethods.EnterEmail4();
+        await landingPageMethods.Confirm3();
+    });
 
 
 });

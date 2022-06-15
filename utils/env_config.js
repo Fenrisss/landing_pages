@@ -9,6 +9,8 @@ const PRODUCT2 = process.env.PRODUCT2;
 const PRODUCT3 = process.env.PRODUCT3;
 const PRODUCT4 = process.env.PRODUCT4;
 const PRODUCT5 = process.env.PRODUCT5;
+const PRODUCT6 = process.env.PRODUCT6;
+const PRODUCT7 = process.env.PRODUCT7;
 
 module.exports = {
     HEADLESS,
@@ -17,6 +19,8 @@ module.exports = {
     PRODUCT2,
     PRODUCT3,
     PRODUCT4,
-    PRODUCT5
+    PRODUCT5,
+    PRODUCT6,
+    PRODUCT7,
 
 };
