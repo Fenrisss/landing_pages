@@ -144,7 +144,7 @@ const EnterEmail3 = async() => {
 
 const EnterUsername3 = async() => {
     await base.SendKeysToElement("[placeholder='Username']", "username");
-    await base.WaitForElement("//*[@id='username']/div/div[1]/img");
+    await base.WaitForElement("[alt=Valid]");
 };
 
 const EnterPassword3 = async() => {
@@ -214,7 +214,52 @@ const Confirm3 = async() => {
     await base.ClickOnElement("//*[@id='email']/div[2]");
 };
 
+const SelectGender = async() => {
+    await base.ClickOnElement("//*[@id='gender']/div/div[2]/span");
+};
 
+
+const EnterZipCode5 = async() => {
+    await base.SendKeysToElement("[name='zipcode']", '03045');
+    await base.WaitForElement("[alt='Valid']");
+    await base.ClickOnElement(".p-step-cta");
+};
+
+const EnterBirthDate3 = async () => {
+    await base.WaitForElement("[name='day']");
+    await base.SelectValueOfDropdown("[name='day']", "1");
+    await base.SelectValueOfDropdown("[name='month']", "1");
+    await base.SelectValueOfDropdown("[name='year']", "2000");
+    await base.ClickOnElement(".p-step-cta");
+};
+
+const SelectGender2 = async() => {
+    await base.ClickOnElement("//*[@id='man_or_woman']/div/div[1]/span");
+};
+
+const Enter = async() => {
+    await base.ClickOnElement(".p-ste-cta")
+};
+
+
+const EnterPassword0 = async () => {
+    await base.SendKeysToElement("[placeholder='Password']", "username");
+    await base.WaitForElement("[alt='Valid']");
+    await base.ClickOnElement("//*[@id='password']/div[2]");
+};
+
+const EnterEmail0 = async () => {
+    let random_number = Math.floor(Math.random() * (1000 - 1 + 1)) + 1;
+    let random_number_string = random_number.toString();
+    let email = "als+" + random_number_string + "@hoiagency.com";
+    await base.SendKeysToElement("[placeholder='Email']", email);
+    await base.WaitForElement("[alt='Valid']");
+};
+
+
+const Continue = async() => {
+    await base.ClickOnElement(".p-step-submit")
+};
 
 module.exports = {
     EnterZipCode,
@@ -251,4 +296,14 @@ module.exports = {
     EnterPassword4,
     EnterEmail4,
     Confirm3,
+    SelectGender,
+    EnterZipCode5,
+    EnterBirthDate3,
+    SelectGender2,
+    Enter,
+    EnterPassword0,
+    EnterEmail0,
+    Continue,
+
+
 };

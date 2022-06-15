@@ -40,7 +40,7 @@ const SendKeysToElement = async (element, text) => {
 };
 
 const SelectValueOfDropdown = async (element, value) => {
-    await elements_handler(element, {hidden: true}).then(elementHandle => elementHandle.select(value.toString()));
+    await elements_handler(element, {hidden: true}, {timeout: 1000000}).then(elementHandle => elementHandle.select(value.toString()));
 };
 
 const WaitForElement = async (element, timeout, hidden) => {

@@ -1,5 +1,5 @@
 // const base = require('./methods/base_methods');
-const {PRODUCT, PRODUCT2, PRODUCT3, PRODUCT4, PRODUCT5, PRODUCT6, PRODUCT7} = require('../utils/env_config.js');
+const {PRODUCT, PRODUCT2, PRODUCT3, PRODUCT4, PRODUCT5, PRODUCT6, PRODUCT7, PRODUCT8} = require('../utils/env_config.js');
 const env = require('../utils/bootstrap.js');
 const landingPageMethods = require('../test/methods/landing_page_methods');
 
@@ -11,6 +11,7 @@ const URL4 = "https://" + PRODUCT4;
 const URL5 = "https://" + PRODUCT5;
 const URL6 = "https://" + PRODUCT6;
 const URL7 = "https://" + PRODUCT7;
+const URL8 = "https://" + PRODUCT8;
 
 describe("SearchforSingles landing pages", () => {
     it.skip("the first landing page -- https://landing.searchingforsingles.com/msn-1/", async() => {
@@ -88,7 +89,7 @@ describe("SearchforSingles landing pages", () => {
         await landingPageMethods.FillSignUpFormOut2();
     });
 
-    it("the 7th landing page -- topglobaldeals.com/offer/fwb-1", async() => {
+    it.skip("the 7th landing page -- topglobaldeals.com/offer/fwb-1", async() => {
         await page.goto(URL7);
         await landingPageMethods.Confirm();
         await landingPageMethods.EnterZipCode();
@@ -100,5 +101,19 @@ describe("SearchforSingles landing pages", () => {
         await landingPageMethods.Confirm3();
     });
 
+    it("the 8th landing page -- topglobaldeals.com/offer/sfs-1", async() => {
+        await page.goto(URL8);
+        await landingPageMethods.SelectGender();
+        await landingPageMethods.EnterZipCode5();
+        await landingPageMethods.EnterBirthDate3();
+        await landingPageMethods.SelectGender2();
+        await landingPageMethods.EnterUsername3();
+        await landingPageMethods.Enter();
+        await landingPageMethods.EnterPassword0();
+        await landingPageMethods.Enter();
+        await landingPageMethods.EnterEmail0();
+        await landingPageMethods.Enter();
+        await landingPageMethods.Continue;
+    });
 
 });
